@@ -13,7 +13,9 @@ const base = new URL(".", import.meta.url);
 const ready = (async () => {
   const { default: create } = await import(new URL("ffish.js", base).href);
   const ffish = await create({ locateFile: (file) => new URL(file, base).href });
-  const ini = await fetch(new URL("variants.ini", base)).then((r) => r.text());
+  const response = await fetch(new URL("variants.ini", base));
+  if (!response.ok) throw new Error(`variants.ini: HTTP ${response.status}`);
+  const ini = await response.text();
   ffish.loadVariantConfig(ini);
   return ffish;
 })();
