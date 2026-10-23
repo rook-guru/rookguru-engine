@@ -1,6 +1,6 @@
 {
   "name": "rookguru-engine",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Chess variant rules worker and variant definitions for rook.guru mini-games, built on Fairy-Stockfish",
   "license": "GPL-3.0-or-later",
   "repository": {
